@@ -22,17 +22,25 @@ console.log('kmUser' , kmUser);
 
 //calcolo pricekm x kmuser
 let price = priceKm * kmUser;
-console.log('price' , price)
+console.log('price' , price);
+
+let newPrice = price;
 
 //calcolo sconto per under 18 e over 65
 if (age < 18) {
     newPrice = price - (price / 100 * discount20);
-    console.log('discount under 18')
-}else if (age > 65) {
+    console.log('discount under 18');
+} else if (age > 65) {
     newPrice = price - (price / 100 * discount40);
-    console.log('discount over 65')
+    console.log('discount over 65');
 }
 
-let newPrice = price;
 console.log('newPrice' , newPrice);
 
+let report =`
+Ciao, grazie per averci scelto. <br>
+Ti ricordiamo che se sei un under 18 avrai un sconto del 20%, altrimenti se sei un'over 65 potrai usufruire di uno sconto del 40%. <br>
+In allegato ti rilasciamo il tuo biglietto da stampare.
+`
+
+document.getElementById('output').innerHTML = report;
